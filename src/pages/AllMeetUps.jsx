@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import MeetUpItem from "../components/allmeetup/MeetUpItem";
+import MeetUpLists from "../components/allmeetup/MeetUpLists";
 
 const AllMeetUps = () => {
-  const [isLoading, setIsLoading] = useState(true);
   const [allMeetUpsData, setAllMeetUpsData] = useState([]);
 
   useEffect(() => {
@@ -26,7 +25,7 @@ const AllMeetUps = () => {
   return (
     <div>
       <h1>All Meetups</h1>
-      <MeetUpItem allMeetUpsData={allMeetUpsData} />
+      <MeetUpLists allMeetUpsData={allMeetUpsData} />
     </div>
   );
 };

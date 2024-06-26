@@ -2,6 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
+import { FavouriteContextProvider } from "./store/FavouriteContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+root.render(
+  <FavouriteContextProvider>
+    <App />
+  </FavouriteContextProvider>
+);
