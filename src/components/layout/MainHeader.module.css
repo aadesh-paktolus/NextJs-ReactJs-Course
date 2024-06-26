@@ -1,0 +1,23 @@
+.mainDiv {
+  background-color: rgb(240, 190, 190);
+  font-family: sans-serif;
+  padding: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 800;
+  color: red;
+}
+
+.lists {
+  list-style: none;
+  display: flex;
+}
+.lists li {
+  margin-left: 20px;
+  cursor: pointer;
+  color: red;
+}
