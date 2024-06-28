@@ -4,7 +4,6 @@ import Link from "next/link";
 import Styles from "./meal-item.module.css";
 
 export default function MealItem({ mealData }) {
-  console.log(mealData.image);
   return (
     <article className={Styles.meal}>
       <header>
