@@ -20,7 +20,7 @@ export async function saveSharingMeal(meal) {
   meal.slug = slugify(meal.title, { lower: true });
   meal.instructions = xss(meal.instructions);
 
-  const extension = meal.image.split(".").pop();
+  const extension = meal.image.name.split(".").pop();
   const fileName = `${meal.slug}.${extension}`;
 
   const stream = fs.createWriteStream(`public/images/${fileName}`);

@@ -3,6 +3,18 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import Styles from "./slug.module.css";
 
+export const generateMetadata = async ({ params }) => {
+  const mealData = getSlugData(params.slug);
+  if (!mealData) {
+    notFound();
+  }
+
+  return {
+    title: mealData.title,
+    description: mealData.summary,
+  };
+};
+
 const page = ({ params }) => {
   const mealData = getSlugData(params.slug);
 

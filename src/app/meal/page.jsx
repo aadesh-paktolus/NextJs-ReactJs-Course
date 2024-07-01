@@ -9,6 +9,11 @@ const MealsDataLoading = async () => {
   return <MealGrid meals={mealsData} />;
 };
 
+export const metadata = {
+  title: "All Meals",
+  description: "Browse the delicious meals shared by our vibrant community.",
+};
+
 const MealsMainPage = () => {
   return (
     <>
