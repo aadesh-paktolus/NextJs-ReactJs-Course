@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import AllNews from "../../../../../components/all-news/index";
 import {
   getAvailableNewsMonths,
@@ -7,22 +8,21 @@ import {
   getNewsForYearAndMonth,
 } from "../../../../../lib/new";
 
-const YearlyNewsPage = ({ params }) => {
+const YearlyNewsPage = async ({ params }) => {
   const filter = params.filter;
-  console.log("filter", filter);
   const selectedYear = filter?.[0];
   const selectedMonth = filter?.[1];
 
   let news;
-  let links = getAvailableNewsYears();
+  let links = await getAvailableNewsYears();
 
   if (selectedYear && !selectedMonth) {
-    news = getNewsForYear(selectedYear);
+    news = await getNewsForYear(selectedYear);
     links = getAvailableNewsMonths(selectedYear);
   }
 
   if (selectedYear && selectedMonth) {
-    news = getNewsForYearAndMonth(selectedYear, selectedMonth);
+    news = await getNewsForYearAndMonth(selectedYear, selectedMonth);
     links = [];
   }
 
@@ -32,20 +32,21 @@ const YearlyNewsPage = ({ params }) => {
     newsContent = <AllNews news={news} />;
   }
 
+  const availableNewsYears = await getAvailableNewsYears();
+
   if (
-    (selectedYear && !getAvailableNewsYears().includes(+selectedYear)) ||
+    (selectedYear && !availableNewsYears.includes(selectedYear)) ||
     (selectedMonth &&
-      !getAvailableNewsMonths(selectedYear).includes(+selectedMonth))
+      !getAvailableNewsMonths(selectedYear).includes(selectedMonth))
   ) {
     throw new Error("Invalid filter.");
   }
 
   return (
     <>
-      <div id="archive-header">
+      <header id="archive-header">
         <ul>
           {links.map((item) => {
-            console.log(item);
             const href = selectedYear
               ? `/archive/${selectedYear}/${item}`
               : `/archive/${item}`;
@@ -56,8 +57,8 @@ const YearlyNewsPage = ({ params }) => {
             );
           })}
         </ul>
-      </div>
-      {newsContent}
+      </header>
+      <Suspense fallback={<p>Loading News...</p>}>{newsContent}</Suspense>
     </>
   );
 };

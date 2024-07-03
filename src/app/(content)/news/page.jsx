@@ -1,9 +1,9 @@
 import AllNews from "../../../components/all-news/index";
 import { getAllNews } from "../../../lib/new";
 
-const News = () => {
-  const news = getAllNews();
-  return <AllNews news={news} />;
+const News = async () => {
+  const newsData = await getAllNews();
+  return <AllNews news={newsData} />;
 };
 
 export default News;
