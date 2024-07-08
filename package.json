@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-exercide",
+  "name": "auth",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,17 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "better-sqlite3": "^11.0.0",
-    "next": "14.2.4",
     "react": "^18",
     "react-dom": "^18",
-    "slugify": "^1.6.6",
-    "xss": "^1.0.15"
-  },
-  "devDependencies": {
-    "eslint": "^8",
-    "eslint-config-next": "14.2.4",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1"
+    "next": "14.1.4",
+    "better-sqlite3": "^9.4.3"
   }
 }
