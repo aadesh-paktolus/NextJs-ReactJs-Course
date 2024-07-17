@@ -1,22 +1,18 @@
 {
-  "name": "nextjs-exercide",
+  "name": "nextjs-course",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.4"
-  },
-  "devDependencies": {
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.4"
+    "bcryptjs": "^2.4.3",
+    "mongodb": "^3.6.4",
+    "next": "10.0.6",
+    "next-auth": "^3.4.2",
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
   }
 }
